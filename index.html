@@ -58,9 +58,10 @@
             background-color: #45a049;
         }
 
-        /* Invisible button styling */
+        /* Invisible Boo button */
         .invisible-button {
-            display: none; /* Initially invisible */
+            opacity: 0; /* Initially invisible */
+            pointer-events: auto; /* Still clickable */
             padding: 15px 30px;
             font-size: 16px;
             background-color: #ff9800;
@@ -69,6 +70,7 @@
             border-radius: 8px;
             cursor: pointer;
             margin-top: 20px;
+            transition: opacity 0.3s ease;
         }
 
         .invisible-button:hover {
@@ -78,12 +80,12 @@
 </head>
 <body>
     <div id="main">
-        <h1>Stop Here! you arent supposed to be here, go back now!</h1>
+        <h1>Stop Here! You aren't supposed to be here, go back now!</h1>
         <div class="button-container">
-            <button id="proceedButton" class="action-button" onclick="askToStop()">dont click this!</button>
+            <button id="proceedButton" class="action-button" onclick="askToStop()">Don't click this!</button>
             <button class="alternative-button" onclick="goToDiscord()">Go do something better</button>
-            <!-- Invisible Button -->
-            <button id="invisibleButton" class="invisible-button" onclick="revealButton()">boo</button>
+            <!-- Invisible Boo button -->
+            <button id="invisibleButton" class="invisible-button" onclick="showBoo()">Boo!</button>
         </div>
     </div>
 
@@ -125,12 +127,16 @@
             window.location.href = "https://discord.gg/hE3BSmWSt5";
         }
 
-        // Function to make the invisible button visible and display "boo"
-        function revealButton() {
-            let invisibleButton = document.getElementById("invisibleButton");
-            invisibleButton.style.display = "inline-block"; // Make the button visible
+        // Function to make the "Boo!" button visible and change text to Boo!
+        function showBoo() {
+            var booButton = document.getElementById("invisibleButton");
+
+            // Make the Boo button visible
+            booButton.style.opacity = 1; // Reveal the button
+
+            // Change the button's text to "Boo!"
+            booButton.textContent = "Boo!";
         }
     </script>
 </body>
 </html>
-
