@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,6 +42,21 @@
         .action-button:hover {
             background-color: #ff3333;
         }
+
+        .alternative-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .alternative-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +64,8 @@
         <h1>Stop Here! you arent supposed to be here, go back now!</h1>
         <div class="button-container">
             <button id="proceedButton" class="action-button" onclick="askToStop()">dont click this!</button>
+            <!-- New Button for Discord Link -->
+            <button class="alternative-button" onclick="goToDiscord()">Go do something better</button>
         </div>
     </div>
 
@@ -83,6 +100,11 @@
             }
 
             alert(message);
+        }
+
+        // New function to redirect to the Discord invite
+        function goToDiscord() {
+            window.location.href = "https://discord.gg/hE3BSmWSt5";
         }
     </script>
 </body>
