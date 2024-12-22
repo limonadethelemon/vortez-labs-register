@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redacted Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .file-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .file-box {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .file-box:hover {
+            background-color: #333;
+            color: #ffffff;
+        }
+
+        .file-content {
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #1e1e1e;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #ff4d4d;
+        }
+
+        .back-link:hover {
+            color: #ffffff;
+        }
+
+        .invisible-box {
+            width: 200px;
+            height: 100px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Vortez Lab. Register</h1>
+        <div class="file-container">
+            <div class="file-box" data-file="file1.html">[REDACTED]</div>
+            <div class="file-box" data-file="file2.html">[REDACTED]</div>
+            <div class="file-box" data-file="file3.html">[REDACTED]</div>
+            <div class="file-box" data-file="file4.html">[REDACTED]</div>
+            <div class="file-box" data-file="file5.html">[REDACTED]</div>
+        </div>
+        <button class="invisible-box" onclick="triggerSecret()"></button>
+    </div>
+
+    <script>
+        const fileContents = {
+            'file1.html': "<div class='file-content'><h2>File 1 Contents</h2><p>This is the content of REDACTED FILE 1.</p></div>",
+            'file2.html': "<div class='file-content'><h2>File 2 Contents</h2><p>This is the content of REDACTED FILE 2.</p></div>",
+            'file3.html': "<div class='file-content'><h2>File 3 Contents</h2><p>This is the content of REDACTED FILE 3.</p></div>",
+            'file4.html': "<div class='file-content'><h2>File 4 Contents</h2><p>This is the content of REDACTED FILE 4.</p></div>",
+            'file5.html': "<div class='file-content'><h2>File 5 Contents</h2><p>This is the content of REDACTED FILE 5.</p></div>"
+        };
+
+        let mainContent = document.getElementById("main").innerHTML;
+
+        function restoreMainContent() {
+            document.getElementById("main").innerHTML = mainContent;
+            addFileListeners();
+        }
+
+        function addFileListeners() {
+            document.querySelectorAll(".file-box").forEach(box => {
+                box.addEventListener("click", () => {
+                    const fileName = box.getAttribute("data-file");
+
+                    if (fileContents[fileName]) {
+                        document.getElementById("main").innerHTML =
+                            fileContents[fileName] +
+                            `<a href="#" class="back-link" onclick="restoreMainContent()">Go Back</a>`;
+                    }
+                });
+            });
+        }
+
+        function triggerSecret() {
+            alert("You thought there would be something here?");
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
+
+        addFileListeners();
+    </script>
+</body>
+</html>

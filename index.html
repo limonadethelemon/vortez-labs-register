@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redacted Files - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #ff4d4d;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Stop Clicking! Are you sure you want to proceed?</h1>
+        <div class="button-container">
+            <button id="proceedButton" class="action-button" onclick="askToStop()">Stop clicking!</button>
+        </div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+
+        function askToStop() {
+            clickCount++;
+            let message = "Please stop clicking!";
+
+            if (clickCount === 1) {
+                message = "Seriously, stop clicking!";
+            } else if (clickCount === 2) {
+                message = "Okay, enough now. Stop clicking!";
+            } else if (clickCount === 3) {
+                message = "Why are you still clicking? Stop!";
+            } else if (clickCount === 4) {
+                message = "This is getting out of hand, stop it!";
+            } else if (clickCount === 5) {
+                message = "Stop it, I’m not kidding!";
+            } else if (clickCount === 6) {
+                message = "Enough already! STOP clicking!";
+            } else if (clickCount === 7) {
+                message = "I warned you! Just stop clicking!";
+            } else if (clickCount === 8) {
+                message = "Stop! I can't take this anymore!";
+            } else if (clickCount === 9) {
+                message = "I really mean it now! Stop clicking!";
+            } else if (clickCount >= 10) {
+                message = "Okay, you’ve had your fun. Now you can proceed.";
+                window.location.href = "[redacted].html"; // Change this to your desired next page URL
+            }
+
+            alert(message);
+        }
+    </script>
+</body>
+</html>
