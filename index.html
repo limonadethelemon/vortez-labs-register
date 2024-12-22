@@ -57,6 +57,23 @@
         .alternative-button:hover {
             background-color: #45a049;
         }
+
+        /* Invisible button styling */
+        .invisible-button {
+            display: none; /* Initially invisible */
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #ff9800;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .invisible-button:hover {
+            background-color: #f57c00;
+        }
     </style>
 </head>
 <body>
@@ -64,8 +81,9 @@
         <h1>Stop Here! you arent supposed to be here, go back now!</h1>
         <div class="button-container">
             <button id="proceedButton" class="action-button" onclick="askToStop()">dont click this!</button>
-            <!-- New Button for Discord Link -->
             <button class="alternative-button" onclick="goToDiscord()">Go do something better</button>
+            <!-- Invisible Button -->
+            <button id="invisibleButton" class="invisible-button" onclick="revealButton()">boo</button>
         </div>
     </div>
 
@@ -102,10 +120,17 @@
             alert(message);
         }
 
-        // New function to redirect to the Discord invite
+        // Function to redirect to the Discord invite
         function goToDiscord() {
             window.location.href = "https://discord.gg/hE3BSmWSt5";
+        }
+
+        // Function to make the invisible button visible and display "boo"
+        function revealButton() {
+            let invisibleButton = document.getElementById("invisibleButton");
+            invisibleButton.style.display = "inline-block"; // Make the button visible
         }
     </script>
 </body>
 </html>
+
