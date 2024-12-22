@@ -46,9 +46,9 @@
 </head>
 <body>
     <div id="main">
-        <h1>Stop Clicking! Are you sure you want to proceed?</h1>
+        <h1>Stop Here! you arent supposed to be here, go back now!</h1>
         <div class="button-container">
-            <button id="proceedButton" class="action-button" onclick="askToStop()">Stop clicking!</button>
+            <button id="proceedButton" class="action-button" onclick="askToStop()">dont click this!</button>
         </div>
     </div>
 
@@ -57,7 +57,7 @@
 
         function askToStop() {
             clickCount++;
-            let message = "Please stop clicking!";
+            let message = "I told you to not click!";
 
             if (clickCount === 1) {
                 message = "Seriously, stop clicking!";
@@ -78,7 +78,7 @@
             } else if (clickCount === 9) {
                 message = "I really mean it now! Stop clicking!";
             } else if (clickCount >= 10) {
-                message = "Okay, you’ve had your fun. Now you can proceed.";
+                message = "Ok, fine, you can go";
                 window.location.href = "[redacted].html"; // Change this to your desired next page URL
             }
 
