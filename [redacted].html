@@ -120,7 +120,7 @@
                     if (fileContents[fileName]) {
                         document.getElementById("main").innerHTML =
                             fileContents[fileName] +
-                            `<a href="#" class="back-link" onclick="restoreMainContent()">Go Back</a>`;
+                            `<a href="#" class="back-link" onclick="restoreMainContent(); return false;">Go Back</a>`;
                     }
                 });
             });
@@ -131,7 +131,9 @@
             window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
         }
 
-        addFileListeners();
+        document.addEventListener("DOMContentLoaded", () => {
+            addFileListeners();
+        });
     </script>
 </body>
 </html>
